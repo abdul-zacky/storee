@@ -16,7 +16,7 @@
     - Buat forms.py untuk menangkap input yang kemudian akan dikirim ke database.
     - Jalankan server.
     
-2.  ![Alt text](https://file%252B.vscode-resource.vscode-cdn.net/Users/macbookair/Desktop/Screenshot%25202024-09-10%2520at%25206.36.43%25E2%2580%25AFPM.png?version%253D1725968284789)
+2.  ![alt text](https://github.com/abdul-zacky/[reponame]/blob/[branch]/image.jpg?raw=true)
 
 2. Membuat aplikasi dengan nama main pada proyek tersebut.
 - Pada direktori saya me-run " python3 manage.py startapp main " untuk membuat aplikasi main, dan pada setting.py saya tambahkan 'main' pada 'ALLOWED APPS'
