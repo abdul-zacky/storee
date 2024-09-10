@@ -16,7 +16,8 @@
     - Buat forms.py untuk menangkap input yang kemudian akan dikirim ke database.
     - Jalankan server.
     
-2.  ![alt text](https://github.com/abdul-zacky/storee/blob/master/bagan.png?raw=true)
+2.  
+    ![alt text](https://github.com/abdul-zacky/storee/blob/master/bagan.png?raw=true)
 
 2. Membuat aplikasi dengan nama main pada proyek tersebut.
 - Pada direktori saya me-run " python3 manage.py startapp main " untuk membuat aplikasi main, dan pada setting.py saya tambahkan 'main' pada 'ALLOWED APPS'
