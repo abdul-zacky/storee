@@ -14,10 +14,10 @@ from django.urls import reverse
 # Create your views here.
 @login_required(login_url='/login')
 def show_main(request):
-    products = Product.objects.all()
+    products = Product.objects.filter(user=request.user)
 
     context = {
-        'name' : 'Abdul Zacky',
+        'name': request.user.username,
         'npm': '2306214510',
         'class': 'PBP C',
         'products': products,
@@ -30,6 +30,8 @@ def create_product(request):
     form = ProductForm(request.POST or None)
 
     if form.is_valid() and request.method == "POST":
+        form = form.save(commit=False)
+        form.user = request.user
         form.save()
         return redirect('main:show_main')
 
