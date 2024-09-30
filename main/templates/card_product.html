@@ -3,8 +3,8 @@
       <div class="w-[3rem] h-8 bg-gray-200 rounded-md opacity-80 -rotate-90"></div>
       <div class="w-[3rem] h-8 bg-gray-200 rounded-md opacity-80 -rotate-90"></div>
     </div>
-    <div class="relative top-5 bg-indigo-100 shadow-md rounded-lg mb-6 break-inside-avoid flex flex-col border-2 border-indigo-300 transform rotate-1 hover:rotate-0 transition-transform duration-300">
-      <div class="bg-indigo-200 text-gray-800 p-4 rounded-t-lg border-b-2 border-indigo-300">
+    <div class="relative top-5 bg-navy-100 shadow-md rounded-lg mb-6 break-inside-avoid flex flex-col border-2 border-navy-300 transform rotate-1 hover:rotate-0 transition-transform duration-300">
+      <div class="bg-navy-200 text-gray-800 p-4 rounded-t-lg border-b-2 border-navy-300">
         <h3 class="font-bold text-xl mb-2">{{product.name}}</h3>
         <!-- <p class="text-gray-600">{{product.time}}</p> -->
       </div>
@@ -18,13 +18,13 @@
           <div class="relative pt-1">
             <div class="flex mb-2 items-center justify-between">
               <div>
-                <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-indigo-600 bg-indigo-200">
+                <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-navy-600 bg-navy-200">
                   {% if product.price > 10 %}10+{% else %}{{product.price}}{% endif %}
                 </span>
               </div>
             </div>
-            <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-indigo-200">
-              <div style="width:{% if product.price > 10 %}100%{% else %}{{ product.price }}0%{% endif %}" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-indigo-500"></div>
+            <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-navy-200">
+              <div style="width:{% if product.price > 10 %}100%{% else %}{{ product.price }}0%{% endif %}" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-navy-500"></div>
             </div>
           </div>
         </div>
