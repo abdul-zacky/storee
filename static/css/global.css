@@ -6,8 +6,8 @@
 }
 .form-style form input:focus, form textarea:focus, form select:focus {
     outline: none;
-    border-color: #674ea7;
-    box-shadow: 0 0 0 3px #674ea7;
+    border-color: #00639D;
+    box-shadow: 0 0 0 3px #00639D;
 }
 @keyframes shine {
     0% { background-position: -200% 0; }
@@ -17,4 +17,8 @@
     background: linear-gradient(120deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.3));
     background-size: 200% 100%;
     animation: shine 3s infinite;
+}
+
+.text-primary {
+    color: #00639D;
 }
