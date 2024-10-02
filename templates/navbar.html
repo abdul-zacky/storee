@@ -9,7 +9,15 @@
         </a>
       </div>
       <div class="hidden md:flex items-center">
-        <span class="text-black-300 mr-4" style="color: #327ba4;">Welcome, {{ user.username }}</span>
+        <a href="{% url 'main:show_main' %}" class="mr-4" style="color: #327ba4;"
+          style="color: #00639D; text-decoration: none;" onmouseover="this.style.color='#000000';"
+          onmouseout="this.style.color='#00639D';">Home</a>
+        <a href="{% url 'main:show_main' %}" class="mr-4" style="color: #327ba4;"
+          style="color: #00639D; text-decoration: none;" onmouseover="this.style.color='#000000';"
+          onmouseout="this.style.color='#00639D';">Products</a>
+        <a href="{% url 'main:show_main' %}" class="mr-4" style="color: #327ba4;"
+          style="color: #00639D; text-decoration: none;" onmouseover="this.style.color='#000000';"
+          onmouseout="this.style.color='#00639D';">Categories</a>
         <a href="{% url 'main:logout' %}" class="text-center font-bold py-2 px-4 rounded transition duration-300"
           style="background-color: #cadde8; color: #509ac5;"
           onmouseover="this.style.color='white'; this.style.backgroundColor='#e53e3e';"
@@ -20,7 +28,7 @@
       <div class="md:hidden flex items-center">
         <button class="mobile-menu-button">
           <svg class="w-6 h-6 text-white" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            viewBox="0 0 24 24" stroke="currentColor">
+            viewBox="0 0 24 24" stroke="#0056b3">
             <path d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
         </button>
@@ -30,9 +38,17 @@
   <!-- Mobile menu -->
   <div class="mobile-menu hidden md:hidden px-4 w-full md:max-w-full">
     <div class="pt-2 pb-3 space-y-1 mx-auto">
-      <span class="block text-gray-300 px-3 py-2">Welcome, {{ user.username }}</span>
-      <a href="{% url 'main:logout' %}"
-        class="block text-center font-bold py-2 px-4 rounded transition duration-300"
+      <a href="{% url 'main:show_main' %}" class="block px-3 py-2" style="color: #00639D;"
+        style="color: #00639D; text-decoration: none;" onmouseover="this.style.color='#000000';"
+        onmouseout="this.style.color='#00639D';">Home</a>
+      <a href="{% url 'main:show_main' %}" class="block px-3 py-2" style="color: #00639D;"
+        style="color: #00639D; text-decoration: none;" onmouseover="this.style.color='#000000';"
+        onmouseout="this.style.color='#00639D';">Products</a>
+      <a href="{% url 'main:show_main' %}" class="block px-3 py-2" style="color: #00639D;"
+        style="color: #00639D; text-decoration: none;" onmouseover="this.style.color='#000000';"
+        onmouseout="this.style.color='#00639D';">Categories</a>
+      <!-- <span class="block px-3 py-2" style="color: #00639D;">Welcome, {{ user.username }}</span> -->
+      <a href="{% url 'main:logout' %}" class="block text-center font-bold py-2 px-4 rounded transition duration-300"
         style="background-color: #cadde8; color: #509ac5;"
         onmouseover="this.style.color='white'; this.style.backgroundColor='#e53e3e';"
         onmouseout="this.style.color='#509ac5'; this.style.backgroundColor='#cadde8';">

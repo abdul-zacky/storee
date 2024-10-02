@@ -127,3 +127,135 @@ Tugas 4
     9. Saya menjalankan makemigrations dan migrate.
     9. Saya juga mengimport os pada settings.py dan mengubah konfigurasi debug.
     10. Terakhir, saya menyimpan semua file, melakukan add, commit, dan push.
+
+
+
+Tugas 5
+1.  
+    Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
+
+    a. Urutan Spesifisitas (Specificity)
+    Prioritas CSS didasarkan pada tingkat spesifisitas dari masing-masing selector. Spesifisitas dihitung menurut empat kategori:
+    - Inline styles (gaya langsung diterapkan pada elemen HTML) memiliki prioritas tertinggi.
+    - ID selector (#id) berada di peringkat kedua.
+    - Class selector, attribute selector, dan pseudo-class (seperti .class, [type="text"], atau :hover) berada di bawah ID.
+    - Tag selector (misalnya p, div) dan pseudo-element (seperti ::before, ::after) memiliki prioritas terendah.
+
+    b. Menghitung Spesifisitas  
+    Setiap selector diberi poin berdasarkan kategorinya:
+    - Inline styles: Mendapat 1 poin untuk elemen inline (spesifisitas tertinggi).
+    - ID selector: Mendapat 1 poin per ID (#contoh).
+    - Class selector, attribute selector, pseudo-class: Mendapat 1 poin per item (misalnya .class, [type="text"], :hover).
+    - Tag selector dan pseudo-element: Mendapat 1 poin per item (misalnya div, p, ::before).
+    Contoh perhitungan spesifisitas:
+    - Inline style: style="color: red" (Spesifisitas: 1000)
+    - ID selector: #id (Spesifisitas: 0100)
+    - Class selector: .class (Spesifisitas: 0010)
+    - Tag selector: p (Spesifisitas: 0001)
+    Selector dengan spesifisitas tertinggi akan diprioritaskan jika elemen terpengaruh oleh beberapa selector.
+
+    c. Urutan Sumber CSS  
+    Selain spesifisitas, urutan penulisan CSS juga berpengaruh pada prioritas:
+    - Urutan penulisan: Jika dua selector memiliki spesifisitas yang sama, yang ditulis paling akhir akan digunakan.
+    - !important: Properti dengan deklarasi !important akan mengesampingkan semua aturan di atas, kecuali jika ada deklarasi !important lain dengan spesifisitas yang lebih tinggi.
+    Dengan demikian, urutan prioritas CSS ditentukan oleh spesifisitas, urutan penulisan, dan deklarasi !important. Selector dengan spesifisitas tertinggi akan selalu diterapkan terlebih dahulu.
+
+2. 
+    Desain responsif penting karena memungkinkan aplikasi web menyesuaikan tampilannya dengan berbagai perangkat, seperti smartphone, tablet, atau desktop. Ini memberikan pengalaman pengguna yang konsisten, meningkatkan SEO, dan mempermudah proses pengembangan serta pemeliharaan.
+    Contoh aplikasi yang sudah menggunakan desain responsif: LinkedIn, Youtube
+    Contoh aplikasi yang belum menggunakan desain responsif: Website SD saya, Website tugas 2 saya
+
+3. 
+    Berikut adalah penjelasan perbedaan antara margin, border, dan padding, serta cara mengimplementasikannya:
+
+    a. Margin:
+    - Margin adalah ruang di luar elemen, yang mengatur jarak antara elemen dengan elemen lainnya di sekitarnya.
+    - Contoh implementasi:
+        ```
+        div {
+            margin: 15px;
+        }
+        ```
+        Contoh ini memberikan jarak 15px di semua sisi elemen `div` dari elemen lainnya di sekitarnya.
+
+    b. Border:
+    - Border adalah garis yang mengelilingi elemen. Border terletak di antara margin dan padding.
+    - Contoh implementasi:
+        ```
+        div {
+            border: 5px solid black;
+        }
+        ```
+        Contoh ini memberikan garis hitam dengan ketebalan 5px di sekitar elemen `div`.
+
+    c. Padding:
+    - Pengertian: Padding adalah ruang di dalam elemen, yang mengatur jarak antara konten elemen dan border elemen tersebut.
+    - Contoh implementasi:
+        ```
+        div {
+            padding: 30px;
+        }
+        ```
+        Contoh ini memberikan jarak 30px di dalam elemen `div`, antara konten dan border.
+
+    Perbedaan:
+    - Margin: Mengatur jarak di luar elemen.
+    - Border: Garis di sekitar elemen yang terletak di antara margin dan padding.
+    - Padding: Mengatur jarak di dalam elemen, antara konten dan border.
+
+4.  
+    Flexbox dan Grid Layout adalah dua teknik tata letak dalam CSS yang memungkinkan kita mengatur elemen secara responsif.
+
+    a. Flexbox (Flexible Box Layout):
+    - Flexbox digunakan untuk menyusun elemen dalam satu dimensi, baik dalam baris (horizontal) atau kolom (vertikal). Elemen di dalam *flex container* secara otomatis menyesuaikan ukurannya dengan ruang yang tersedia. Grid layout sangat cocok digunakan untuk mengatur elemen yang perlu disejajarkan secara horizontal atau vertikal, seperti menu navigasi, tampilan produk, atau galeri gambar.
+    - Contoh implementasi:
+        ```
+        .container {
+            display: flex;
+            justify-content: space-around;
+        }
+        ```
+        Contoh ini menyusun elemen dalam *container* secara horizontal dengan ruang yang rata di antara mereka.
+
+    b. Grid Layout:
+    - Grid Layout memungkinkan pembuatan tata letak dua dimensi, yaitu dengan baris dan kolom. Grid memberikan kontrol yang lebih presisi dalam menempatkan elemen di berbagai area dalam tata letak. Grid layout cocok untuk tata letak yang lebih kompleks, seperti halaman dengan banyak kolom dan baris, seperti dashboard atau tata letak halaman utama.
+    - Contoh implementasi:
+        ```
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+        ```
+        Contoh ini membagi *container* menjadi tiga kolom dengan lebar yang sama.
+
+    Perbedaan:
+    - Flexbox berfungsi untuk tata letak satu dimensi (hanya baris atau kolom).
+    - Grid digunakan untuk tata letak dua dimensi (baris dan kolom).
+
+5. 
+    Berikut adalah langkah-langkah implementasi checklist yang dilakukan secara bertahap:
+
+    a. Membuat Fungsi `edit_product` dan `delete_product` di `views.py`
+    - Saya memulai dengan membuat dua fungsi di `views.py` yang menangani permintaan untuk mengedit dan menghapus produk. Masing-masing fungsi menerima parameter berupa request dan ID produk. Ini memungkinkan aplikasi untuk mengenali produk mana yang sedang diedit atau dihapus.
+    - Selanjutnya, saya menambahkan URL untuk kedua fungsi ini di `urls.py`, sehingga mereka dapat diakses melalui URL yang tepat.
+
+    b. Membuat Template untuk `edit_product` dan Memperbarui Template Lain
+    - Saya merancang template untuk halaman edit produk, memastikan pengguna dapat melihat dan mengubah informasi produk seperti nama, harga, dan deskripsi.
+    - Selain itu, saya memperbarui beberapa template lain agar tampilannya lebih menarik dan sesuai dengan tema keseluruhan aplikasi.
+
+    c. Mengedit `main.html` untuk Menampilkan Pesan Ketika Tidak Ada Produk
+    - Di `main.html`, saya menambahkan kondisi di mana jika tidak ada produk yang tersedia, maka akan muncul pesan yang menjelaskan bahwa produk tidak tersedia. Ini dilakukan untuk meningkatkan pengalaman pengguna saat halaman kosong.
+
+    d. Membuat `card_product.html` untuk Menampilkan Informasi Produk
+    - Saya membuat file `card_product.html` yang bertugas untuk menampilkan informasi detail produk, seperti nama, harga, deskripsi, serta menyediakan tombol untuk edit dan delete.
+    - Template ini kemudian saya hubungkan ke `main.html` agar dapat ditampilkan di halaman utama.
+
+    e. Mengatur Layout `card_product` Menggunakan Grid
+    - Saya menggunakan grid layout di CSS untuk menampilkan informasi produk di dalam kartu secara rapi. Ini membantu menampilkan produk secara responsif dan terstruktur di berbagai perangkat.
+
+    f. Membuat Template Navbar yang Responsif
+    - Saya merancang sebuah template navbar yang responsif dan menempatkannya di direktori luar agar dapat digunakan oleh halaman lain. Setiap elemen di navbar dihubungkan dengan link yang sesuai, sehingga pengguna dapat dengan mudah menavigasi situs.
+
+    g. Menambahkan Script untuk Responsivitas Mobile
+    - Terakhir, saya menambahkan script agar situs lebih ramah untuk perangkat mobile, memastikan tata letak dan elemen-elemen berfungsi dengan baik di berbagai ukuran layar.
+    - Setelah semua selesai, saya melakukan langkah-langkah akhir dengan `git add`, `commit`, dan `push` untuk menyimpan dan mengunggah perubahan ke repository.
