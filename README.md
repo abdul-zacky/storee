@@ -259,3 +259,39 @@ Tugas 5
     g. Menambahkan Script untuk Responsivitas Mobile
     - Terakhir, saya menambahkan script agar situs lebih ramah untuk perangkat mobile, memastikan tata letak dan elemen-elemen berfungsi dengan baik di berbagai ukuran layar.
     - Setelah semua selesai, saya melakukan langkah-langkah akhir dengan `git add`, `commit`, dan `push` untuk menyimpan dan mengunggah perubahan ke repository.
+
+
+
+Tugas 6
+1. 
+    Manfaat Penggunaan JavaScript dalam Pengembangan Aplikasi Web: Javascript penting buat bikin aplikasi web yang interaktif dan responsif. Dengan javascript, kita bisa refresh konten halaman web tanpa perlu reload seluruh halaman. Selain itu, kita bisa bikin aplikasi yang lebih dinamis dan interaktif, seperti validasi data langsung di browser pengguna atau interaksi yang menarik. Javascript juga memungkinkan komunikasi asinkron dengan server lewat AJAX, jadi aplikasi terasa lebih cepat dan responsif.
+
+2.  
+    Fungsi Penggunaan await pada fetch() dan Dampaknya Jika Tidak Digunakan: await dipakai supaya Javascript nunggu hasil dari fetch() dulu sebelum lanjut ke baris berikutnya. Jadi, kalau pakai await, aplikasi akan nunggu sampai fetch() selesai dan dapat respons dari server. Kalau nggak pakai await, Javascript bakal langsung lanjut tanpa nunggu, yang bisa bikin aplikasi error karena respons belum siap dipakai.
+
+3.  
+    Kegunaan @csrf_exempt untuk AJAX POST: Django pakai token CSRF buat melindungi aplikasi dari serangan csrf, tapi kadang pas pakai AJAX POST, kita nggak kirim token CSRF dari frontend dan django bakal tolak permintaan itu. @csrf_exempt di view bikin django nggak ngecek CSRF buat permintaan itu, jadi AJAX POST bisa jalan tanpa token csrf.
+
+4. 
+    Kenapa Pembersihan Data Input Harus di Backend Juga, Bukan Cuma di Frontend: Walaupun di frontend bisa dicegah input yang nggak sesuai, pembersihan di backend tetap penting buat jaga keamanan dan integritas data. Soalnya, pengguna masih bisa kirim data yang nggak sesuai atau bahkan berbahaya kalau mereka tahu cara manipulasi permintaan. Jadi, backend tetap harus validasi dan bersihkan data sebelum diolah atau disimpan di database, buat menghindari serangan kayak SQL injection atau cross-site scripting (XSS).
+
+5. 
+    a. Menambahkan Pesan Error di login_user pada views.py
+    - Saya menambahkan pesan error dengan menggunakan messages.error(request, "Invalid username or password. Please try again.") ketika login gagal. Ini memungkinkan pengguna mendapatkan notifikasi langsung di halaman login apabila username atau password tidak cocok.
+    - Setelah itu, saya memastikan bahwa pesan ini akan tampil di template login.html agar pengguna dapat melihatnya ketika login gagal.
+    b. Membuat Fungsi add_mood_entry_ajax di views.py
+    - Saya memulai dengan menambahkan fungsi add_mood_entry_ajax yang berfungsi untuk menambah data mood ke dalam basis data menggunakan AJAX. Fungsi ini menerima data yang dikirim melalui metode POST, seperti mood, feelings, dan mood intensity.
+    - Untuk menghindari pengecekan CSRF dan membatasi metode yang diizinkan, saya menggunakan dekorator @csrf_exempt dan @require_POST. Ini memastikan bahwa fungsi hanya dapat diakses dengan metode POST dan tidak perlu token CSRF.
+    c. Menambahkan Path Baru di urls.py
+    - Selanjutnya, saya menambahkan path baru di urls.py agar fungsi add_mood_entry_ajax bisa diakses melalui URL tertentu, misalnya /create-mood-entry-ajax. Ini mempermudah akses AJAX ke fungsi tersebut.
+    d. Menggunakan AJAX untuk Menampilkan Data Mood
+    - Saya menggunakan fungsi fetch() untuk mengambil data mood dari endpoint JSON secara asinkronus. Dengan cara ini, saya bisa memuat data secara dinamis di halaman tanpa perlu reload seluruh halaman.
+    - Saya menambahkan fungsi getMoodEntries dan refreshMoodEntries di dalam main.html. Kedua fungsi ini bekerja sama untuk mengambil data mood dan memperbarui tampilan halaman secara real-time.
+    e. Membuat dan Menambahkan Modal untuk Form Penambahan Mood
+    - Saya merancang modal menggunakan Tailwind CSS di main.html sebagai form untuk menambah mood. Modal ini bisa ditampilkan dengan mengklik tombol, dan dilengkapi dengan form input untuk mood, feelings, dan mood intensity.
+    - Di dalam modal, saya tambahkan tombol submit yang akan memanggil fungsi JavaScript addMoodEntry untuk mengirim data ke server.
+    f. Menambahkan Fungsi addMoodEntry untuk Mengirim Data dengan AJAX
+    - Di dalam <script> pada main.html, saya membuat fungsi addMoodEntry untuk menangani submit form secara asinkronus. Data dari form dikirim ke server menggunakan AJAX POST tanpa perlu reload halaman.
+    - Setelah data dikirim, modal akan otomatis tertutup dan form akan di-reset, sehingga aplikasi langsung siap untuk menambah mood baru lagi tanpa gangguan.
+    g. Menghubungkan Tombol di Modal ke Fungsi addMoodEntry
+    - Saya menambahkan event onclick pada tombol submit di modal agar langsung menjalankan fungsi addMoodEntry ketika tombol tersebut diklik. Hal ini memudahkan proses submit data mood entry tanpa reload halaman.
