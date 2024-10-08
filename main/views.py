@@ -13,6 +13,8 @@ from django.urls import reverse
 from django.shortcuts import reverse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
+from django.utils.html import escape
+from django.utils.html import strip_tags
 
 # Create your views here.
 @login_required(login_url='/login')
@@ -100,7 +102,7 @@ def edit_product(request, id):
         form.save()
         return HttpResponseRedirect(reverse('main:show_main'))
 
-    context = {'form': form}
+    context = {'form': form, "product": product}
     return render(request, "edit_product.html", context)
 
 def delete_product(request, id):
@@ -115,13 +117,14 @@ def mainpage_view(request):
 @csrf_exempt
 @require_POST
 def add_product_ajax(request):
-    name = request.POST.get("name")
-    description = request.POST.get("description")
+    name = strip_tags(request.POST.get("name"))
+    description = strip_tags(request.POST.get("description"))
     price = request.POST.get("price")
     user = request.user
 
     new_product = Product(
-        name=name, description=description,
+        name=name, 
+        description=description,
         price=price,
         user=user
     )
